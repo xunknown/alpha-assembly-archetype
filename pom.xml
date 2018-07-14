@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>alpha.study</groupId>
+	<artifactId>alpha-assembly-archetype</artifactId>
+	<version>1.0.0</version>
+	<packaging>maven-archetype</packaging>
+
+	<name>alpha-assembly-archetype</name>
+	<description>alpha-assembly-archetype: with dependencies slf4j-api, log4j-slf4j-impl, log4j-core, commons-lang3, use run.sh shell script to run the application.</description>
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.archetype</groupId>
+				<artifactId>archetype-packaging</artifactId>
+				<version>3.0.1</version>
+			</extension>
+		</extensions>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.archetype</groupId>
+					<artifactId>maven-archetype-plugin</artifactId>
+					<version>3.0.1</version>
+				</plugin>
+
+				<!-- use maven-resources-plugin to copy the .gitignore file to archetype-resources -->
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<includeEmptyDirs>true</includeEmptyDirs>
+						<addDefaultExcludes>false</addDefaultExcludes>
+					</configuration>
+					<executions>
+						<execution>
+							<id>default-resources</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>resources</goal>
+							</goals>
+							<configuration>
+								<detail>true</detail>
+							</configuration>
+						</execution>
+						<execution>
+							<id>default-testResources</id>
+							<phase>process-test-resources</phase>
+							<goals>
+								<goal>testResources</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

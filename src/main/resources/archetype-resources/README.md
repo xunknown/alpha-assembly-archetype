@@ -1,0 +1,1 @@
+# alpha-assembly-archetype example project
